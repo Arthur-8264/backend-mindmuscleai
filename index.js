@@ -1,85 +1,28 @@
-// backend-mindmuscleai/index.js
-
-require('dotenv').config();
 const express = require('express');
-const bodyParser = require('body-parser');
-const axios = require('axios');
 const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
-const PORT = process.env.PORT || 3000;
 
+// Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-// ROTAS PRINCIPAIS
-app.post('/gerar-cronograma', async (req, res) => {
-  const dadosUsuario = req.body;
+// Importar rotas
+const gerarCronogramaRoute = require('./routes/gerarCronograma');
+const gerarComprasRoute = require('./routes/gerarCompras');
 
-  try {
-    const respostaOpenAI = await axios.post(
-      'https://api.openai.com/v1/chat/completions',
-      {
-        model: 'gpt-4',
-        messages: [
-          {
-            role: 'system',
-            content: 'Você é um personal trainer e nutricionista profissional.'
-          },
-          {
-            role: 'user',
-            content: `Crie uma rotina de treinos e uma dieta adaptada para: ${JSON.stringify(dadosUsuario)}`
-          }
-        ]
-      },
-      {
-        headers: {
-          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, // Coloque aqui a chave da API da OpenAI no .env
-          'Content-Type': 'application/json'
-        }
-      }
-    );
+// Usar rotas
+app.use('/api/gerar-cronograma', gerarCronogramaRoute);
+app.use('/api/gerar-compras', gerarComprasRoute);
 
-    res.json({ resultado: respostaOpenAI.data });
-  } catch (erro) {
-    console.error('Erro ao chamar OpenAI:', erro);
-    res.status(500).json({ erro: 'Erro ao gerar cronograma com a OpenAI.' });
-  }
+// Rota de teste padrão
+app.get('/', (req, res) => {
+  res.send('API do MindMuscleAI está rodando com sucesso!');
 });
 
-app.post('/localizar-alimentos', async (req, res) => {
-  const { localizacao, preferencia } = req.body;
-
-  try {
-    const respostaGemini = await axios.post(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent',
-      {
-        contents: [
-          {
-            parts: [
-              {
-                text: `Quais são os melhores lugares para comprar alimentos saudáveis em ${localizacao}, considerando ${preferencia}?`
-              }
-            ]
-          }
-        ]
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        params: {
-          key: process.env.GEMINI_API_KEY // Coloque aqui a chave da API do Gemini no .env
-        }
-      }
-    );
-
-    res.json({ resultado: respostaGemini.data });
-  } catch (erro) {
-    console.error('Erro ao chamar Gemini:', erro);
-    res.status(500).json({ erro: 'Erro ao localizar alimentos com o Gemini.' });
-  }
-});
-
+// Iniciar servidor
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
