@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const gerarCronogramaController = require('../controllers/gerarCronogramaController');
+const { gerarCronograma } = require('../controllers/gerarCronogramaController');
 
-router.post('/', gerarCronogramaController);
+router.post('/gerar-cronograma', gerarCronograma);
 
 module.exports = router;
+
