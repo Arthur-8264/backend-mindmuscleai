@@ -20,11 +20,11 @@ app.use('/api/gerar-compras', gerarComprasRoute);
 app.get('/', (req, res) => {
   res.send('API do MindMuscleAI está rodando com sucesso!');
 });
-
+const cronogramaRoutes = require('./routes/gerarCronograma');
+app.use('/api', cronogramaRoutes);
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
-const cronogramaRoutes = require('./routes/gerarCronograma');
-app.use('/api', cronogramaRoutes);
+
