@@ -30,6 +30,9 @@ app.use('/api/gerar-dieta', gerarDietaRouter);
 const coachEmocionalRouter = require('./routes/coachEmocional');
 app.use('/api/coach-emocional', coachEmocionalRouter);
 
+const comoFazerExerciciosRoute = require('./routes/comoFazerExercicios');
+app.use('/api/como-fazer-exercicio', comoFazerExerciciosRoute);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
