@@ -30,6 +30,9 @@ app.use('/api/gerar-dieta', gerarDietaRouter);
 const coachEmocionalRouter = require('./routes/coachEmocional');
 app.use('/api/coach-emocional', coachEmocionalRouter);
 
+const ondeComprarRoutes = require('./routes/ondeComprar');
+app.use('/api/onde-comprar', ondeComprarRoutes);
+
 const comoFazerExerciciosRoute = require('./routes/comoFazerExercicios');
 app.use('/api/como-fazer-exercicio', comoFazerExerciciosRoute);
 
