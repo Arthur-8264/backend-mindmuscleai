@@ -27,6 +27,9 @@ app.use('/api', cronogramaRoutes);
 const gerarDietaRouter = require('./routes/gerarDieta');
 app.use('/api/gerar-dieta', gerarDietaRouter);
 
+const coachEmocionalRouter = require('./routes/coachEmocional');
+app.use('/api/coach-emocional', coachEmocionalRouter);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
