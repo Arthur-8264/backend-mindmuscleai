@@ -36,6 +36,9 @@ app.use('/api/onde-comprar', ondeComprarRoutes);
 const comoFazerExerciciosRoute = require('./routes/comoFazerExercicios');
 app.use('/api/como-fazer-exercicio', comoFazerExerciciosRoute);
 
+const comoFazerRoutes = require('./routes/comoFazer');
+app.use('/api/como-fazer', comoFazerRoutes);
+
 const receitaEspecialRouter = require("./routes/receitaEspecial");
 app.use("/receita-especial", receitaEspecialRouter);
 
