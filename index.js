@@ -45,6 +45,9 @@ app.use("/receita-especial", receitaEspecialRouter);
 import meuPlanoRoutes from './routes/meuPlanoRoutes.js';
 app.use('/api/meu-plano', meuPlanoRoutes);
 
+import meuPerfilRoutes from './routes/meuPerfilRoutes.js';
+app.use('/api/meu-perfil', meuPerfilRoutes);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
