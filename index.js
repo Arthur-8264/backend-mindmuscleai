@@ -42,6 +42,9 @@ app.use('/api/como-fazer', comoFazerRoutes);
 const receitaEspecialRouter = require("./routes/receitaEspecial");
 app.use("/receita-especial", receitaEspecialRouter);
 
+import meuPlanoRoutes from './routes/meuPlanoRoutes.js';
+app.use('/api/meu-plano', meuPlanoRoutes);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
