@@ -42,6 +42,9 @@ app.use('/api/como-fazer', comoFazerRoutes);
 const receitaEspecialRouter = require("./routes/receitaEspecial");
 app.use("/receita-especial", receitaEspecialRouter);
 
+import avaliacaoRoutes from './routes/avaliacaoRoutes.js';
+app.use('/api/avaliacao', avaliacaoRoutes);
+
 import meuPlanoRoutes from './routes/meuPlanoRoutes.js';
 app.use('/api/meu-plano', meuPlanoRoutes);
 
