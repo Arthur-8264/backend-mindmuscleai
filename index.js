@@ -51,6 +51,9 @@ app.use('/api/meu-plano', meuPlanoRoutes);
 import meuPerfilRoutes from './routes/meuPerfilRoutes.js';
 app.use('/api/meu-perfil', meuPerfilRoutes);
 
+import planoAcessoRoutes from './routes/planoAcessoRoutes.js';
+app.use('/api/acesso', planoAcessoRoutes);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
