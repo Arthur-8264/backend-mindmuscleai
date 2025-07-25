@@ -57,6 +57,9 @@ app.use('/api/acesso', planoAcessoRoutes);
 import authRoutes from './routes/authRoutes.js';
 app.use('/api/auth', authRoutes);
 
+import userRoutes from './routes/userRoutes.js';
+app.use('/api/usuarios', userRoutes);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
