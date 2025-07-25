@@ -54,6 +54,9 @@ app.use('/api/meu-perfil', meuPerfilRoutes);
 import planoAcessoRoutes from './routes/planoAcessoRoutes.js';
 app.use('/api/acesso', planoAcessoRoutes);
 
+import authRoutes from './routes/authRoutes.js';
+app.use('/api/auth', authRoutes);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
