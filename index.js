@@ -63,6 +63,9 @@ app.use('/api/usuarios', userRoutes);
 import planRoutes from './routes/planRoutes.js';
 app.use('/api/planos', planRoutes);
 
+import acessoRoutes from './routes/acessoRoutes.js';
+app.use('/api/acesso', acessoRoutes);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
