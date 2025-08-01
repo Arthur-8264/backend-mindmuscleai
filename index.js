@@ -66,6 +66,9 @@ app.use('/api/planos', planRoutes);
 import acessoRoutes from './routes/acessoRoutes.js';
 app.use('/api/acesso', acessoRoutes);
 
+import ondeComprarRoutes from './routes/ondeComprarRoutes.js';
+app.use('/api', ondeComprarRoutes);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
