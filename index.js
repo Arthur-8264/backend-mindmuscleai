@@ -69,6 +69,9 @@ app.use('/api/acesso', acessoRoutes);
 import ondeComprarRoutes from './routes/ondeComprarRoutes.js';
 app.use('/api', ondeComprarRoutes);
 
+const pagamentoRoutes = require('./routes/pagamentoRoutes');
+app.use('/pagamento', pagamentoRoutes);
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
