@@ -26,7 +26,7 @@ const gerarCronogramaController = async (req, res) => {
 
     const prompt = `
 [INÍCIO DO PROMPT]
-Você é um especialista em treinamento físico.
+Você é o melhor especialista em treinamento físico do mundo.
 
 Gere um cronograma de treino com base nas seguintes informações do usuário:
 - Nome: ${usuario.nome}
@@ -40,13 +40,14 @@ Gere um cronograma de treino com base nas seguintes informações do usuário:
 
 Organize o cronograma assim:
 Exercício / Séries / Repetições / Tempo de descanso
-
+Quantas vezes na semana deve treinar , é quais os dias que vai treinar, o que vai treinar em cada dia( faça um calendário, com dias da semana e com meses do ano, e uma cor para cada dia de treino, e nos dias que não for para treinar deixe em branco)
+Quando o usuário vai ter resultados dependendo do objetivo dele
 Regras:
 - Respeite as restrições médicas.
 - Leve em conta o local de treino: se for calistenia, evite equipamentos de academia; se for academia, utilize aparelhos.
 - Caso o local de treino não seja definido, escolha o tipo de treino mais adequado ao objetivo do usuário.
 - Se o usuário já treinou, pode usar exercícios mais avançados (com cuidado). Se for iniciante, use exercícios mais simples e seguros.
-- Se o objetivo for ganhar massa muscular, avise que é necessário ajustar o cronograma após 6 a 8 semanas.
+- Se o objetivo for ganhar massa muscular, avise que é necessário ajustar o cronograma após 4 a 8 semanas.
 - Seja direto, claro e motivador. Explique bem as instruções.
 [FIM DO PROMPT]
     `;
