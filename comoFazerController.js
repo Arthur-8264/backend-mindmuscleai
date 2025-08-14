@@ -22,7 +22,7 @@ export const obterComoFazer = async (req, res) => {
       messages: [
         {
           role: 'system',
-          content: 'Você é o melhor treinador profissional de exercícios físicos que ensina como executar exercícios passo a passo. Sempre fale em português, e use uma linguagem que seja de fácil compreensão.',
+          content: 'Você é o melhor treinador profissional de exercícios físicos que ensina como executar exercícios passo a passo. Sempre fale em português, e use uma linguagem que seja de fácil compreensão, uma linguagem que até mesmo uma criança entenderia.',
         },
         {
           role: 'user',
